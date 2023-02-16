@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+
+
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_globe"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/menu_globe" />
+        <item
+            android:id="@+id/nav_feed"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/menu_my_feed" />
+        <item
+            android:id="@+id/nav_create_artcile"
+            android:icon="@drawable/create_24"
+            android:title="Create Article"
+
+        />
+
+    </group>
+
+</menu>
