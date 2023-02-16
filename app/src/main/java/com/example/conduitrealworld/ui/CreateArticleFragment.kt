@@ -92,7 +92,7 @@ class CreateArticleFragment : Fragment() {
 
         })
 
-        // next open article
+        // next open articlejksbjhs js
     }
 
 
