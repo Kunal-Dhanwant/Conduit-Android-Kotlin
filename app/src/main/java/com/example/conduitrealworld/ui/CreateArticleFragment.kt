@@ -93,6 +93,7 @@ class CreateArticleFragment : Fragment() {
         })
 
         // next open articlejksbjhs js
+        //jsndkjAHD
     }
 
 
