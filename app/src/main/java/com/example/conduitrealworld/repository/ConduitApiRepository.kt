@@ -44,12 +44,47 @@ class ConduitApiRepository(private val conduitApi: ConduitApi) {
     val feed :LiveData<List<Article>>
     get() =  _feed
 
+
+    private val _article= MutableLiveData<ArticleResponse>()
+    val articledata :LiveData<ArticleResponse>
+    get() = _article
+
+    suspend fun favouritearticle(slug:String){
+
+        val result= conduitAuthApi.favoriteArticle(slug)
+        if(result?.body()!=null){
+            _article.postValue(result?.body())
+        }
+
+    }
+    suspend fun unfavouritearticle(slug:String){
+
+        val result= conduitAuthApi.unfavoriteArticle(slug)
+        if(result?.body()!=null){
+            _article.postValue(result?.body())
+        }
+
+    }
+
+
      suspend fun  fetch_myfeed(){
          val result = conduitAuthApi?.getfeedArticles()
          if(result?.body()!=null){
              _feed.postValue(result.body()?.articles)
          }
      }
+
+    suspend fun fetchglobalarticle_afterlogin(){
+        val result = conduitAuthApi?.getAllArticlesafterlogin("1000")
+
+
+        if(result?.body()!=null){
+
+            mutable_articles.postValue(result.body()?.articles)
+
+        }
+
+    }
 
 
 

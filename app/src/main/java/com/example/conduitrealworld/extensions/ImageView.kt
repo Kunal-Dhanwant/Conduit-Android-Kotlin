@@ -9,4 +9,6 @@ fun ImageView.loadImage(uri: String, circleCrop: Boolean = false) {
     } else {
         Glide.with(this).load(uri).into(this)
     }
+
+
 }
