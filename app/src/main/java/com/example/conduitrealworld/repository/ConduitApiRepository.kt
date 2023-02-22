@@ -53,7 +53,7 @@ class ConduitApiRepository(private val conduitApi: ConduitApi) {
 
         val result= conduitAuthApi.favoriteArticle(slug)
         if(result?.body()!=null){
-            _article.postValue(result?.body())
+            _article.postValue(result.body())
         }
 
     }

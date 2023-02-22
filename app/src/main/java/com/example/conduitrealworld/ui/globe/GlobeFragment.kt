@@ -8,12 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.conduitrealworld.Utils.TokenManager
 import com.example.conduitrealworld.databinding.FragmentGlobeBinding
+import com.example.conduitrealworld.modules.entites.Article
 import com.example.conduitrealworld.repository.ConduitApiRepository
 import com.example.conduitrealworld.services.ConduitApi
 import com.example.conduitrealworld.services.RetroFitHelper
@@ -41,7 +43,7 @@ class GlobeFragment : Fragment() {
 
 
 
-        feedAdaptar= ArticleFeedAdaptar(::onheartClicked)
+        feedAdaptar= ArticleFeedAdaptar()
         tokenManager = TokenManager(requireContext())
         val conduitApi = RetroFitHelper.getInstance().create(ConduitApi::class.java)
         val repository = ConduitApiRepository(conduitApi)
@@ -75,28 +77,7 @@ class GlobeFragment : Fragment() {
 
         return root
     }
-    private  fun  onheartClicked(is_fav:Boolean,slug:String):Boolean{
 
-        if(is_fav){
-            globeViewModel.unfavouritearticle(slug)
-            Log.d("check********","unfavourited")
-            return true;
-
-
-
-
-        }else{
-            globeViewModel.favouritearticle(slug)
-            Log.d("check********","favourited")
-            return  false
-
-
-        }
-
-
-
-
-    }
 
 
     private  fun setdata(){

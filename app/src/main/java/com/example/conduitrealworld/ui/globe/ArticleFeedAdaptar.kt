@@ -19,7 +19,7 @@ import com.example.conduitrealworld.modules.entites.Article
 import java.security.AccessController.getContext
 
 
-class ArticleFeedAdaptar(private val onheartClicked:(Boolean,String) ->Boolean):
+class ArticleFeedAdaptar():
     androidx.recyclerview.widget.ListAdapter<Article, ArticleFeedAdaptar.ArticleViewHolder>(DiffUtil()) {
 
 
@@ -64,23 +64,14 @@ class ArticleFeedAdaptar(private val onheartClicked:(Boolean,String) ->Boolean):
 
 
             val is_fav:Boolean = article.favorited
-            Log.d("checking ----------",article.author.username)
-            Log.d("checking ----------",article.favorited.toString())
+
 
             if(is_fav){
                 heart.setImageResource(R.drawable.loved)
             }
-            heart.setOnClickListener {
-              val result= onheartClicked(is_fav,article.slug)
-                if(result){
-                    heart.setImageResource(R.drawable.love)
-                    Tv_like.text = article.favoritesCount.toString()
+            Log.d("adaptar response----",article.toString())
 
-                }else{
-                    Tv_like.text = article.favoritesCount.toString()
-                    heart.setImageResource(R.drawable.loved)
-                }
-            }
+
 
 
 

@@ -21,6 +21,15 @@
             android:title="Create Article"
 
         />
+        <item
+
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/settings_24"
+            android:title="Setting"
+
+        />
+
+
 
     </group>
 
